@@ -19,6 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: adoptopenjdk:11.0.11_9-jdk-hotspot
+      volumes:
+        - ~/.gradle:/root/.gradle
 
     steps:
     - uses: actions/checkout@v3
@@ -28,8 +30,3 @@ jobs:
 
     - name: Build
       run: ./gradlew clean build -x test
-
-    - name: Cleanup Gradle Cache
-      run: |
-        rm -f ~/.gradle/caches/modules-2/modules-2.lock
-        rm -f ~/.gradle/caches/modules-2/gc.properties

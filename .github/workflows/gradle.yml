@@ -20,7 +20,7 @@ jobs:
     container:
       image: adoptopenjdk:11.0.11_9-jdk-hotspot
       volumes:
-        - ~/.gradle:/root/.gradle
+        - .gradle:/root/.gradle
 
     steps:
     - uses: actions/checkout@v3
